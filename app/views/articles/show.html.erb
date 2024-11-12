@@ -1,0 +1,28 @@
+<h1>Article</h1>
+<div>
+    <div>
+       <h3><%= @article.title %></h1>
+    </div>
+    <div>
+       <p><%= @article.body %></p>
+    </div>
+    <div>
+      <%= link_to "Edit", edit_article_path(@article)%>
+      <%= link_to "Delete", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }%>
+    </div>
+</div>
+
+<!-- Rendering to show comments -->
+<h3>Comments</h3>
+<div>
+   <%= render @article.comments %>
+</div>
+
+<!--Rendering  Form to add new comment-->
+<div>
+   <h2>Add a comment:</h2>
+   <%= render "comments/form", article: @article%>
+</div>
