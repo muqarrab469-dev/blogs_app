@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "users#signin_form"
+  post "signin", to: "users#signin", as: "signin"
+
+  resources :users
 
   # Routes
   # Root Route(mainly for setting home page/starting page for user when opens app)
-  root "articles#index"
   # get "/articles", to: "articles#index"
   # to show single article based on id
   # get "/articles/:id", to: "articles#show"
