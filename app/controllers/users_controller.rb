@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       flash[:notice] = "Signed in successfully!"
       redirect_to articles_path
     else

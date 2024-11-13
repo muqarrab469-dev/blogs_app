@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :articles, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   validates :first_name, :last_name, presence: true, length: { minimum: 1, maximum: 10 }
   validates :password, presence: true, length: { minimum: 1, maximum: 15 }
 
